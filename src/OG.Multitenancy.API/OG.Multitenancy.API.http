@@ -1,0 +1,6 @@
+@OG.Multitenancy.API_HostAddress = http://localhost:5002
+
+GET {{OG.Multitenancy.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
