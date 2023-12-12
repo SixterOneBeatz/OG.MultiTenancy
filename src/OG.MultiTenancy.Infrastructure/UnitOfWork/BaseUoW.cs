@@ -8,9 +8,9 @@ namespace OG.Multitenancy.Infrastructure.UnitOfWork
         private readonly T _context = context;
 
 
-        public async Task Commit()
+        public async Task<int> Commit()
         {
-            await this._context.SaveChangesAsync();
+            return await this._context.SaveChangesAsync();
         }
     }
 }

@@ -2,6 +2,6 @@
 {
     public interface IBaseUoW
     {
-        Task Commit();
+        Task<int> Commit();
     }
 }
