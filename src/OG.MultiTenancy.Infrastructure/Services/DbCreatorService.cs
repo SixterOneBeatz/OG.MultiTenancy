@@ -11,9 +11,10 @@ namespace OG.Multitenancy.Infrastructure.Services
     {
         private readonly OrganizationDbContext _organizationDbContext = organizationDbContext;
         private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
+
         public async Task Create(Organization organization)
         {
-            _httpContextAccessor.HttpContext.Request.Headers[TENANT_HEADER_KEY] = organization.Name;
+            this._httpContextAccessor.HttpContext.Request.Headers[TENANT_HEADER_KEY] = organization.Name;
             await this._organizationDbContext.Database.MigrateAsync();
         }
     }

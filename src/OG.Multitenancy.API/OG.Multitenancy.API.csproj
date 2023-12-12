@@ -20,4 +20,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OG.MultiTenancy.Application\OG.Multitenancy.Application.csproj" />
+    <ProjectReference Include="..\OG.MultiTenancy.Infrastructure\OG.Multitenancy.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

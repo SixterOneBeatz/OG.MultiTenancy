@@ -1,36 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using OG.Multitenancy.Application.Common.DTOs;
+using OG.Multitenancy.Application.Features.Organization.Commands;
 
 namespace OG.Multitenancy.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AdminController : ControllerBase
+    public class AdminController(IMediator mediator) : ControllerBase
     {
+        private readonly IMediator _mediator = mediator;
 
         [HttpPost]
-        public IActionResult Create()
+        public async Task<IActionResult> Create([FromBody] OrganizationDTO organization)
         {
-            //bool existOrg = await this._masterDbContext.Organizations.AnyAsync(o => o.Name == org.Name);
+            CreateOrganizationCommand request = new(organization);
+            int response = await _mediator.Send(request);
 
-            //if (!existOrg)
-            //{
-            //    var connectionString = string.Format(this._configuration.GetConnectionString("OrganizationTemplate"), org.Name);
-            //    org.ConnectionString = connectionString;
-            //    org.Active = true;
-
-            //    var created = await this._masterDbContext.Organizations.AddAsync(org);
-            //    await this._masterDbContext.SaveChangesAsync();
-
-            //    await this._organizationDbCreator.Create(created.Entity);
-
-            //    return Created();
-            //}
-            //else
-            //{
-            //    return Conflict("Organization already exist");
-            //}
-
-            return Created();
+            if (response > 0)
+            {
+                return Created();
+            }
+            else
+            {
+                return Conflict();
+            }
         }
     }
 }
