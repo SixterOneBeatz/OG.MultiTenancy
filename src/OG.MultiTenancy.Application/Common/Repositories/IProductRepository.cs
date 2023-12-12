@@ -4,6 +4,6 @@ namespace OG.Multitenancy.Application.Common.Repositories
 {
     public interface IProductRepository
     {
-        Task<List<Product>> GetProducts();
+        Task<List<ProductDom>> GetProducts();
     }
 }

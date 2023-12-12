@@ -12,7 +12,7 @@ namespace OG.Multitenancy.API.Controllers
         private readonly IMediator _mediator = mediator;
 
         [HttpGet]
-        public async Task<ActionResult<List<Domain.Product>>> Get()
+        public async Task<ActionResult<List<Domain.ProductDom>>> Get()
         {
             GetProductsQuery request = new();
 

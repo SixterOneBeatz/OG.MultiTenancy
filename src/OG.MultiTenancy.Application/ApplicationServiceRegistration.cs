@@ -7,7 +7,11 @@ namespace OG.Multitenancy.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddMediatR(conf => conf.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+            Assembly assembly = Assembly.GetExecutingAssembly();
+
+            services.AddAutoMapper(assembly);
+            services.AddMediatR(conf => conf.RegisterServicesFromAssembly(assembly));
+
             return services;
         }
     }

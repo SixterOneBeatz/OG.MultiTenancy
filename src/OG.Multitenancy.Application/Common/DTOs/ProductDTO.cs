@@ -1,6 +1,6 @@
-﻿namespace OG.Multitenancy.Domain
+﻿namespace OG.Multitenancy.Application.Common.DTOs
 {
-    public class Product
+    public class ProductDTO
     {
         public int Id { get; set; }
         public string Name { get; set; }

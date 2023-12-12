@@ -15,7 +15,7 @@ namespace OG.Multitenancy.Infrastructure.Services
         private readonly IConfiguration _configuration = configuration;
         public string GetTenantConnection()
         {
-            Organization organization = null;
+            OrganizationDom organization = null;
             string connection = this._configuration.GetConnectionString(DEFAULT_CS_KEY);
 
             if (this._httpContextAccessor.HttpContext.Request.Headers.TryGetValue(TENANT_HEADER_KEY, out var values))

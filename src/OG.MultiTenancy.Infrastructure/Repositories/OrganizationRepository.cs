@@ -9,7 +9,7 @@ namespace OG.Multitenancy.Infrastructure.Repositories
     {
         private readonly MasterDbContext _masterDbContext = masterDbContext;
 
-        public async Task<Organization> Create(Organization organization)
+        public async Task<OrganizationDom> Create(OrganizationDom organization)
         {
             var created = await this._masterDbContext.AddAsync(organization);
 
