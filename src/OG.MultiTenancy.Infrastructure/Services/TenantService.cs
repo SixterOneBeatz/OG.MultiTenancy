@@ -6,7 +6,7 @@ using OG.Multitenancy.Infrastructure.Contexts;
 using static OG.Multitenancy.Application.Common.Constants.GlobalConsts;
 using static OG.Multitenancy.Application.Common.Constants.SettingsConsts;
 
-namespace OG.Multitenancy.API.Services
+namespace OG.Multitenancy.Infrastructure.Services
 {
     public class TenantService(MasterDbContext masterDbContext, IHttpContextAccessor httpContextAccessor, IConfiguration configuration) : ITenantService
     {

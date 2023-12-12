@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace OG.Multitenancy.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AdminController: ControllerBase
+    public class AdminController : ControllerBase
     {
 
         [HttpPost]

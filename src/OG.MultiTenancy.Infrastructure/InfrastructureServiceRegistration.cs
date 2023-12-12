@@ -2,9 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using OG.Multitenancy.API.Services;
 using OG.Multitenancy.Application.Common.Services;
 using OG.Multitenancy.Infrastructure.Contexts;
+using OG.Multitenancy.Infrastructure.Services;
 using static OG.Multitenancy.Application.Common.Constants.SettingsConsts;
 
 namespace OG.Multitenancy.Infrastructure
