@@ -1,4 +1,4 @@
-﻿namespace OG.Multitenancy.API.Domain
+﻿namespace OG.Multitenancy.Domain
 {
     public class Organization
     {

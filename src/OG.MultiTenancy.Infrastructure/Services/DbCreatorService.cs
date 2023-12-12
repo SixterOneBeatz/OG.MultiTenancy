@@ -1,10 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using OG.Multitenancy.API.Data;
-using OG.Multitenancy.API.Domain;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
+using OG.Multitenancy.Application.Common.Services;
+using OG.Multitenancy.Domain;
+using OG.Multitenancy.Infrastructure.Contexts;
 
 namespace OG.Multitenancy.API.Services
 {
-    public class OrganizationDbCreator(OrganizationDbContext organizationDbContext, IHttpContextAccessor httpContextAccessor) : IOrganizationDbCreator
+    public class DbCreatorService(OrganizationDbContext organizationDbContext, IHttpContextAccessor httpContextAccessor) : IDbCreatorService
     {
         private readonly OrganizationDbContext _organizationDbContext = organizationDbContext;
         private readonly IHttpContextAccessor httpContextAccessor = httpContextAccessor;

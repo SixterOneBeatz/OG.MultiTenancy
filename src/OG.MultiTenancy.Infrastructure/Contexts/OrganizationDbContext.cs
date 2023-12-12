@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OG.Multitenancy.API.Domain;
-using OG.Multitenancy.API.Services;
+using OG.Multitenancy.Application.Common.Services;
+using OG.Multitenancy.Domain;
 
-namespace OG.Multitenancy.API.Data
+namespace OG.Multitenancy.Infrastructure.Contexts
 {
     public class OrganizationDbContext(DbContextOptions<OrganizationDbContext> options, ITenantService tenantService) : DbContext(options)
     {

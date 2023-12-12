@@ -1,6 +1,4 @@
-﻿using OG.Multitenancy.API.Domain;
-
-namespace OG.Multitenancy.API.Services
+﻿namespace OG.Multitenancy.Application.Common.Services
 {
     public interface ITenantService
     {

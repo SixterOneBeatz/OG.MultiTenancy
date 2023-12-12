@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
-using OG.Multitenancy.API.Data;
-using OG.Multitenancy.API.Domain;
+using Microsoft.Extensions.Configuration;
+using OG.Multitenancy.Application.Common.Services;
+using OG.Multitenancy.Domain;
+using OG.Multitenancy.Infrastructure.Contexts;
+using static OG.Multitenancy.Application.Common.Constants.GlobalConsts;
+using static OG.Multitenancy.Application.Common.Constants.SettingsConsts;
 
 namespace OG.Multitenancy.API.Services
 {
@@ -12,9 +16,9 @@ namespace OG.Multitenancy.API.Services
         public string GetTenantConnection()
         {
             Organization organization = null;
-            string connection = this._configuration.GetConnectionString("OrganizationDefault");
+            string connection = this._configuration.GetConnectionString(DEFAULT_CS_KEY);
 
-            if (this._httpContextAccessor.HttpContext.Request.Headers.TryGetValue("Tenant", out var values))
+            if (this._httpContextAccessor.HttpContext.Request.Headers.TryGetValue(TENANT_HEADER_KEY, out var values))
             {
                 organization = this._masterDbContext.Organizations.FirstOrDefault(x => x.Name == values.FirstOrDefault());
             }
